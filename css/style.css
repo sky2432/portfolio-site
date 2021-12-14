@@ -564,20 +564,27 @@ img {
   }
 
   /* Skill */
+  .skill-genre {
+    font-size: 18px;
+  }
+
   .skill-list {
     margin-bottom: 0;
   }
 
   .skill-item {
     width: 50%;
+    align-items: center;
     margin-bottom: 35px;
   }
 
   .skill-img {
+    width: 45px;
     margin-right: 10px;
   }
 
   .skill-name {
+    font-size: 14px;
     margin-bottom: 5px;
   }
 
@@ -590,10 +597,15 @@ img {
   .profile {
     display: block;
   }
+
   .profile-img {
     width: 150px;
     margin: 0 auto;
     margin-bottom: 25px;
+  }
+
+  .profile-body h3 {
+    font-size: 18px;
   }
 
   .profile-body p {
@@ -636,6 +648,32 @@ img {
 
   .github-item p {
     margin-bottom: 3px;
+  }
+}
+
+/*media Queries 374 smartphone
+----------------------------------------------------*/
+@media screen and (max-width: 374px) {
+  /* ヘッダー */
+  .header-logo span {
+    display: none;
+  }
+
+  /* スキル */
+  .skill-item {
+    margin-bottom: 20px;
+  }
+
+  .skill-img {
+    width: 30px;
+  }
+
+  .skill-name {
+    font-size: 12px;
+  }
+
+  .skill-text {
+    font-size: 10px;
   }
 }
 
