@@ -7,16 +7,16 @@
   <meta property='og:title' content='エンジニアSORA ITO ポートフォリオ'>
   <meta property='og:url' content='URLが入る'>
   <meta property='og:description' content='SORA ITOのポートフォリオサイトです。'>
-  <meta property="og:image" content="img/ogp.png">
+  <meta property="og:image" content="/img/ogp.png">
   <meta name="description" content="SORA ITOのポートフォリオサイトです" />
   <title>SORA ITO ポートフォリオ</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  <link href="css/ress.css" media="all" rel="stylesheet" type="text/css" />
-  <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link href="/css/ress.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="/img/favicon.ico" />
   <link rel=”canonical” href=”URLが入る” />
 </head>
 
@@ -27,14 +27,14 @@
     <header class="header ">
       <div class="container">
         <h1 class="header-logo">
-          <a href="."><i class="fas fa-paw icon"></i>SORA <span>ITO</span></a>
+          <a href="/"><i class="fas fa-paw icon"></i>SORA <span>ITO</span></a>
         </h1>
         <nav class="gnav">
           <ul class="gnav-list">
-            <li class="gnav-item"><a href=".#works">WORKS</a></li>
-            <li class="gnav-item"><a href="./#skill">SKILL</a></li>
-            <li class="gnav-item"><a href="./#about">ABOUT</a></li>
-            <li class="gnav-item"><a href="./#contact">CONTACT</a></li>
+            <li class="gnav-item"><a href="/#works">WORKS</a></li>
+            <li class="gnav-item"><a href="/#skill">SKILL</a></li>
+            <li class="gnav-item"><a href="/#about">ABOUT</a></li>
+            <li class="gnav-item"><a href="/#contact">CONTACT</a></li>
           </ul>
         </nav>
       </div>
@@ -46,46 +46,35 @@
       <article class="article">
         <div class="article-container">
           <h2 class="article-title">
-            TodoList
+            fansa | ファンサ合同会社様
             <br class="sp-only">
-            <span class="work-tag-article work-tag-personal">個人開発</span>
+            <span class="work-tag-article work-tag-work">仕事</span>
           </h2>
           <div class="article-body">
             <p>
-              <img src="img/works/todo.png" alt="">
+              <img src="../img/works/fansa.png" alt="">
+              <small>※α版の画像になります。</small>
             </p>
             <p>
-              継続化を促すTodoリストアプリケーションです。カレンダー上でのTodoの確認、完了したTodoの数を棒グラフで見ることができたりと視覚的な要素を多く用意しています。
+              お仕事として初めて開発を担当させていただいたアプリになります。既存で運営しているサービスのUI改善・マニュアルで行なっている作業の自動化を目的としてwebアプリ版の開発をさせていただきました。
             </p>
+            <h3>サービス概要</h3>
+            <p>fansa(ファンサ)は有名人からアナタだけに宛てた動画メッセージが届くサービスです。誕生日のお祝いや、結婚式でのサプライズメッセージなど、依頼内容は自由に設定できます。</p>
             <h3>アプリURL</h3>
-            <p>
-              <a href="https://my-simple-todolist.netlify.app/login" target="_blank" rel="noopener">https://my-simple-todolist.netlify.app/login</a>
-              <br>「ゲストログイン」ボタンからアプリを体験することができます。
-              <br>※現在は停止中です。
-            </p>
+            <p>リリース前のためまだ不在です。</p>
+            <h3>既存サービスURL</h3>
+            <p><a href="https://fansa.jp/" target="_blank" rel="noopener">https://fansa.jp/</a></p>
             <h3>担当</h3>
-            <p>デザイン・コーディング</p>
+            <p>フロントエンド・バックエンドの開発<br>AWSによるインフラ構築</p>
             <h3>主な使用技術</h3>
             <p>
-              Vue.js, BootstrapVue, Laravel,
+              Nuxt.js, Vuetify, Laravel, Mysql,
               <br class="sp-only">
-              Mysql, Netlify, Heroku
-              <br><small>※より詳しくはgithubリポジトリのREADMEをご覧ください。</small>
+              AWS(EC2・RDS・S3・SES・Lambda)
             </p>
-            <h3>githubリポジトリ</h3>
-            <ul>
-              <li class="github-item">
-                <p>・フロントエンド</p>
-                <a href="https://github.com/sky2432/todo-vue" target="_blank" rel="noopener">https://github.com/sky2432/todo-vue</a>
-              </li>
-              <li class="github-item">
-                <p>・バックエンドエンド</p>
-                <a href="https://github.com/sky2432/todo-laravel" target="_blank" rel="noopener">https://github.com/sky2432/todo-laravel</a>
-              </li>
-            </ul>
           </div>
           <div class="home-link">
-            <a href="./#works">Works一覧へ</a>
+            <a href="/#work">Works一覧へ</a>
           </div>
         </div>
       </article>
@@ -103,6 +92,6 @@
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type='text/javascript' src="js/script.js"></script>
+  <script type='text/javascript' src="/js/script.js"></script>
 </body>
 </html>
