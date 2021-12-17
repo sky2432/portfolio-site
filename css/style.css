@@ -452,6 +452,27 @@ img {
   margin-bottom: 3px;
 }
 
+.swiper {
+  padding-bottom: 40px!important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #333!important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px!important;
+}
+
+.swiper-pagination-bullet {
+  border-radius: inherit!important;
+  background: #333!important;
+  width: 54px!important;
+  height: 5px!important;
+}
+
 /*media Queries 1440 tablet & pc
 ----------------------------------------------------*/
 @media screen and (max-width: 1439px) {
@@ -648,6 +669,11 @@ img {
 
   .github-item p {
     margin-bottom: 3px;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none;
   }
 }
 

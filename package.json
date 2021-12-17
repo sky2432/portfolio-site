@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-site",
+  "private": true,
+  "scripts": {
+    "dev": "npx webpack --mode=development",
+    "build": "npx webpack --mode=production"
+  },
+  "dependencies": {
+    "swiper": "^7.3.2"
+  },
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
