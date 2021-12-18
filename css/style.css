@@ -287,6 +287,11 @@ img {
   color: rgb(253, 187, 65);
 }
 
+.icons8-credit {
+  text-align: right;
+  padding-top: 10px;
+}
+
 /*--------------------------------
  About
 ---------------------------------*/
