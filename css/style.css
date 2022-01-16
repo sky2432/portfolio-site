@@ -446,6 +446,23 @@ img {
 }
 
 .article-body ul {
+  list-style-position: inside;
+}
+
+.article-body li {
+  padding-bottom: 5px;
+}
+
+.article-body h4 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.aws-list {
+  padding-left: 20px;
+}
+
+.github-list {
   list-style: none;
 }
 

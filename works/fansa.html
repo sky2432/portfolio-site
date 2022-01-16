@@ -92,15 +92,64 @@
             <p><a href="https://fansa.jp/" target="_blank" rel="noopener">https://fansa.jp/</a></p>
             <h3>担当</h3>
             <p>フロントエンド・バックエンドの開発<br>AWSによるインフラ構築</p>
-            <h3>主な使用技術</h3>
-            <p>
-              Nuxt.js, Vuetify, Laravel, Mysql,
-              <br class="sp-only">
-              AWS(EC2・RDS・S3・SES・Lambda)
-            </p>
+            <h3>機能一覧</h3>
+            <ul>
+              <li>認証（nuxt/auth）</li>
+              <li>ユーザー管理</li>
+              <li>メッセージ依頼管理</li>
+              <li>タレントの評価</li>
+              <li>動画管理（AWS S3）</li>
+              <li>動画の期限付きリンク(AWS S3)</li>
+              <li>動画加工（AWS Lambda）</li>
+              <li>決済機能（Stripe）</li>
+              <li>メール・LINE・Slack通知（AWS SES, line-bot-sdk, slack-notification-channel）</li>
+              <li>タレント・管理者・カテゴリ・フッターページの管理（microCMS）</li>
+              <li>自動デプロイ（github actions）</li>
+            </ul>
+            <h3>使用技術</h3>
+            <h4>フロントエンド</h4>
+            <ul>
+              <li>HTML/CSS</li>
+              <li>JavaScript</li>
+              <li>Nuxt.js</li>
+              <li>Vuetify</li>
+              <li>VeeValidate</li>
+              <li>nuxt/axios</li>
+              <li>nuxt/auth</li>
+              <li>nuxt-stripe-module</li>
+            </ul>
+            <h4>バックエンド</h4>
+            <ul>
+              <li>PHP</li>
+              <li>Laravel</li>
+              <li>Mysql</li>
+              <li>tymon/jwt-auth</li>
+              <li>aws/aws-sdk-php</li>
+              <li>league/flysystem-aws-s3-v3</li>
+              <li>laravel/slack-notification-channel</li>
+              <li>linecorp/line-bot-sdk</li>
+              <li>stripe/stripe-php</li>
+            </ul>
+            <h4>インフラ</h4>
+            <ul>
+              <li>AWS</li>
+              <ul class="aws-list">
+                <li>Route53</li>
+                <li>CloudFront</li>
+                <li>S3</li>
+                <li>ALB</li>
+                <li>EC2</li>
+                <li>RDS</li>
+                <li>Lambda</li>
+                <li>SES</li>
+              </ul>
+              <li>microCMS</li>
+              <li>Stripe</li>
+              <li>github actions</li>
+            </ul>
           </div>
           <div class="home-link">
-            <a href="/#work">Works一覧へ</a>
+            <a href="/#works">Works一覧へ</a>
           </div>
         </div>
       </article>
