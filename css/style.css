@@ -216,9 +216,8 @@ img {
 }
 
 .works-img img {
-  height: 283px;
   border: 1px solid #e6e6e6;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .works-name {
