@@ -21,7 +21,7 @@ img {
 
 
 .pc-only {
-  display: block;
+  display: inline;
 }
 
 .sp-only {
