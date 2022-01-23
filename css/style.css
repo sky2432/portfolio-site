@@ -292,9 +292,13 @@ img {
   color: rgb(253, 187, 65);
 }
 
-.icons8-credit {
-  text-align: right;
-  padding-top: 10px;
+.credit {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.icon-credit {
+  text-align: center;
 }
 
 /*--------------------------------
