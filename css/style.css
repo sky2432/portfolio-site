@@ -211,9 +211,14 @@ img {
   margin-right: 0;
 }
 
+.works-img {
+  text-align: center;
+}
+
 .works-img img {
+  height: 283px;
   border: 1px solid #e6e6e6;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .works-name {
@@ -493,6 +498,14 @@ img {
   background: #333!important;
   width: 54px!important;
   height: 5px!important;
+}
+
+.swiper-slide {
+  text-align: center;
+}
+
+.swiper-slide img {
+  height: 340px;
 }
 
 /*media Queries 1440 tablet & pc
