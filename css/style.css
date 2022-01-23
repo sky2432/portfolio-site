@@ -507,7 +507,7 @@ img {
   text-align: center;
 }
 
-.swiper-slide img {
+.porro-swiper-wrapper .swiper-slide img {
   height: 340px;
 }
 
