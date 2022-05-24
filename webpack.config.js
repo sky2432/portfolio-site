@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './js/main.js',
@@ -16,5 +17,12 @@ module.exports = {
         ],
       },
     ]
-  }
+  },
+  plugins: [
+    // jQueryをwebpackで読み込む
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ]
 };
