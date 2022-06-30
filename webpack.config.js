@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   entry: './js/main.js',
@@ -11,18 +12,35 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [
-          'style-loader',
-          'css-loader'
-        ],
+        use: ['vue-style-loader', 'css-loader'],
       },
-    ]
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     // jQueryをwebpackで読み込む
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'
-    })
-  ]
+      jQuery: 'jquery',
+    }),
+    new VueLoaderPlugin(),
+  ],
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm.js',
+    },
+  },
 };
