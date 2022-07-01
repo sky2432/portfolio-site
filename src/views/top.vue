@@ -99,151 +99,16 @@
     <section class="skill section" id="skill">
       <div class="container">
         <h2 class="title">SKILL</h2>
-
-        <h3 class="skill-genre">Frontend</h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/html-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">HTML5/CSS3</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/javascript-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">JavaScript</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/typescript-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">TypeScript</h3>
-              <p class="skill-text">2 month</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/vuejs-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Vue.js</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/nuxtjs-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Nuxt.js</h3>
-              <p class="skill-text">10 Month</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/vuetify-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Vuetify</h3>
-              <p class="skill-text">6 month</p>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="skill-genre">Backend</h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/php-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">PHP</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/laravel-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Laravel</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/symfony-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Symfony</h3>
-              <p class="skill-text">2 month</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/mysql-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Mysql</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="skill-genre">Infrastructure</h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/netlify-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Netlify</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/heroku-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Heroku</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/aws-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">AWS</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/github-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Git/Github</h3>
-              <p class="skill-text">1 year</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-img">
-              <img src="img/skills/docker-icon.png" alt="" />
-            </p>
-            <div class="skill-body">
-              <h3 class="skill-name">Docker</h3>
-              <p class="skill-text">8 month</p>
-            </div>
+        <div v-for="skillItem in skillList" :key="skillItem.genre">
+          <h3 class="skill-genre">{{ skillItem.genre }}</h3>
+          <div class="skill-list">
+            <SkillItem
+              v-for="skill in skillItem.skills"
+              :key="skill.name"
+              :imgName="skill.imgName"
+              :name="skill.name"
+              :experience="skill.experience"
+            ></SkillItem>
           </div>
         </div>
       </div>
@@ -316,3 +181,53 @@
     <!-- /contact -->
   </div>
 </template>
+
+<script>
+import SkillItem from '../components/SkillItem.vue';
+export default {
+  components: {
+    SkillItem,
+  },
+
+  data() {
+    return {
+      skillList: [
+        {
+          genre: 'Frontend',
+          skills: [
+            { imgName: 'html', name: 'HTML5/CSS3', experience: '1 year' },
+            { imgName: 'javascript', name: 'JavaScript', experience: '1 year' },
+            {
+              imgName: 'typescript',
+              name: 'TypeScript',
+              experience: '2 month',
+            },
+            { imgName: 'vuejs', name: 'Vue.js', experience: '1 year' },
+            { imgName: 'nuxtjs', name: 'Nuxt.js', experience: '10 Month' },
+            { imgName: 'vuetify', name: 'Vuetify', experience: '6 month' },
+          ],
+        },
+        {
+          genre: 'Backend',
+          skills: [
+            { imgName: 'php', name: 'PHP', experience: '1 year' },
+            { imgName: 'laravel', name: 'Laravel', experience: '1 year' },
+            { imgName: 'symfony', name: 'Symfony', experience: '2 month' },
+            { imgName: 'mysql', name: 'Mysql', experience: '1 year' },
+          ],
+        },
+        {
+          genre: 'Infrastructure',
+          skills: [
+            { imgName: 'netlify', name: 'Netlify', experience: '1 year' },
+            { imgName: 'heroku', name: 'Heroku', experience: '1 year' },
+            { imgName: 'aws', name: 'AWS', experience: '1 year' },
+            { imgName: 'github', name: 'Git/Github', experience: '1 year' },
+            { imgName: 'docker', name: 'Docker', experience: '8 month' },
+          ],
+        },
+      ],
+    };
+  },
+};
+</script>
