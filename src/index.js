@@ -1,12 +1,9 @@
 import Vue from 'vue';
+import router from './router/index';
+import App from './App.vue'
 import Example from './components/example.vue';
 
-const app = new Vue({
-  el: '#app',
-  components: {
-    Example,
-  },
-  data: {
-    message: 'Hello World',
-  },
-});
+new Vue({
+  router,
+  render: (h) => h(App),
+}).$mount('#app');
