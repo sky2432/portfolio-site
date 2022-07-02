@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
+const env = require('dotenv').config().parsed;
 
 module.exports = {
   mode: 'development',
@@ -38,6 +39,9 @@ module.exports = {
       jQuery: 'jquery',
     }),
     new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(env),
+    }),
   ],
   resolve: {
     alias: {

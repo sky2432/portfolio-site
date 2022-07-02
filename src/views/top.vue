@@ -20,76 +20,14 @@
       <div class="container">
         <h2 class="title">WORKS</h2>
         <div class="works-list">
-          <a class="works-item" href="works/porro.html">
-            <div class="works-img">
-              <img src="img/works/porro/top.jpg" alt="" />
-            </div>
-            <p class="works-name">
-              Discovery Gallery
-              <span class="work-tag work-tag-work">work</span>
-            </p>
-            <p class="works-info">Coding</p>
-          </a>
-          <a class="works-item" href="works/ecsite.html">
-            <div class="works-img">
-              <img src="img/works/ecsite-sample.jpg" alt="" />
-            </div>
-            <p class="works-name">
-              ECサイトリニューアル業務
-              <span class="work-tag work-tag-work">work</span>
-            </p>
-            <p class="works-info">Coding</p>
-          </a>
-          <a class="works-item" href="works/fansa.html">
-            <div class="works-img">
-              <img src="img/works/fansa/top.png" alt="" />
-            </div>
-            <p class="works-name">
-              fansa
-              <span class="work-tag work-tag-work">work</span>
-            </p>
-            <p class="works-info">Coding(Responsive)</p>
-          </a>
-          <a class="works-item" href="works/routine.html">
-            <div class="works-img">
-              <img src="img/works/routine/top.png" alt="" />
-            </div>
-            <p class="works-name">
-              RoutineQuest
-              <span class="work-tag work-tag-personal">personal</span>
-            </p>
-            <p class="works-info">Design / Coding(Responsive)</p>
-          </a>
-          <a class="works-item" href="works/rese.html">
-            <div class="works-img">
-              <img src="img/works/rese/top.png" alt="" />
-            </div>
-            <p class="works-name">
-              Rese
-              <span class="work-tag work-tag-personal">personal</span>
-            </p>
-            <p class="works-info">Coding(Responsive)</p>
-          </a>
-          <a class="works-item" href="works/todo.html">
-            <div class="works-img">
-              <img src="img/works/todo/top.png" alt="" />
-            </div>
-            <p class="works-name">
-              TodoList
-              <span class="work-tag work-tag-personal">personal</span>
-            </p>
-            <p class="works-info">Design / Coding(Responsive)</p>
-          </a>
-          <a class="works-item" href="works/portfolio-site.html">
-            <div class="works-img">
-              <img src="img/works/portfolio-site.png" alt="" />
-            </div>
-            <p class="works-name">
-              SORA ITO Portfolio Site
-              <span class="work-tag work-tag-personal">personal</span>
-            </p>
-            <p class="works-info">Coding(Responsive)</p>
-          </a>
+          <WorkItem
+            v-for="work in works"
+            :key="work.contentId"
+            :title="work.title"
+            :genre="work.genre[0]"
+            :thumbnailUrl="work.thumbnail.url"
+            :role="work.role[0]"
+          ></WorkItem>
         </div>
       </div>
     </section>
@@ -183,14 +121,19 @@
 </template>
 
 <script>
+import axios from 'axios';
 import SkillItem from '../components/SkillItem.vue';
+import WorkItem from '../components/WorkItem.vue';
+
 export default {
   components: {
     SkillItem,
+    WorkItem,
   },
 
   data() {
     return {
+      works: [],
       skillList: [
         {
           genre: 'Frontend',
@@ -228,6 +171,28 @@ export default {
         },
       ],
     };
+  },
+
+  created() {
+    this.fetchWorks();
+  },
+
+  methods: {
+    async fetchWorks() {
+      try {
+        const res = await axios.get(
+          'https://portfolio-site.microcms.io/api/v1/works',
+          {
+            headers: {
+              'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
+            },
+          }
+        );
+        this.works = res.data.contents;
+      } catch (e) {
+        console.log(e);
+      }
+    },
   },
 };
 </script>

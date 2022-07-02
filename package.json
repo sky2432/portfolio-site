@@ -7,6 +7,8 @@
     "build": "npx webpack --mode=production"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "jquery": "^3.6.0",
     "swiper": "^7.3.2",
     "vue": "^2.6.14",

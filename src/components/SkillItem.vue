@@ -5,7 +5,7 @@
     </p>
     <div class="skill-body">
       <h3 class="skill-name">{{ name }}</h3>
-      <p class="skill-text">{{ experience}}</p>
+      <p class="skill-text">{{ experience }}</p>
     </div>
   </div>
 </template>
@@ -21,9 +21,7 @@ export default {
     },
     experience: {
       type: String,
-    }
-  }
+    },
+  },
 };
 </script>
-
-<style></style>
