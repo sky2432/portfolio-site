@@ -22,7 +22,8 @@
         <div class="works-list">
           <WorkItem
             v-for="work in works"
-            :key="work.contentId"
+            :key="work.id"
+            :contentId="work.id"
             :title="work.title"
             :genre="work.genre[0]"
             :thumbnailUrl="work.thumbnail.url"

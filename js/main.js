@@ -1,3 +1,3 @@
 import './scroll';
-import './swiper';
+// import './swiper';
 import '../src/index';

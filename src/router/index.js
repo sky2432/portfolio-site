@@ -1,9 +1,6 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Top from '../views/Top.vue';
 import Work from '../views/Work.vue';
-
-Vue.use(VueRouter);
 
 const routes = [
   {
@@ -19,8 +16,8 @@ const routes = [
   },
 ];
 
-const router = new VueRouter({
-  // mode: 'history',
+const router = createRouter({
+  history: createWebHashHistory(),
   routes,
 });
 

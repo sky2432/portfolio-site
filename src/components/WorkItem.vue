@@ -1,5 +1,8 @@
 <template>
-  <a class="works-item" href="#">
+  <router-link
+    class="works-item"
+    :to="{ name: 'Work', params: { workId: contentId } }"
+  >
     <div class="works-img">
       <img :src="thumbnailUrl" alt="" />
     </div>
@@ -8,12 +11,15 @@
       <span :class="`work-tag work-tag-${genre}`">{{ genre }}</span>
     </p>
     <p class="works-info">{{ role }}</p>
-  </a>
+  </router-link>
 </template>
 
 <script>
 export default {
   props: {
+    contentId: {
+      type: String
+    },
     title: {
       type: String,
     },
@@ -25,7 +31,7 @@ export default {
     },
     role: {
       type: String,
-    }
+    },
   },
 };
 </script>

@@ -19,6 +19,13 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            compatConfig: {
+              MODE: 2,
+            },
+          },
+        },
       },
       {
         test: /\.js$/,
@@ -45,7 +52,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
+      vue: '@vue/compat',
     },
   },
 };

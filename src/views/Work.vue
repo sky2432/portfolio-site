@@ -4,49 +4,24 @@
       <div class="article-container">
         <h2 class="article-title">
           {{ work.title }}
-          <br class="sp-only" />
           <span :class="`work-tag-article work-tag-${work.genre}`">
             <span v-if="work.genre == 'work'">仕事</span>
             <span v-if="work.genre == 'personal'">個人開発</span>
           </span>
         </h2>
         <div class="article-body">
-          <div class="swiper">
-            <div class="swiper-wrapper porro-swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="/img/works/porro/top.jpg" alt="" />
-              </div>
-              <div class="swiper-slide">
-                <img src="/img/works/porro/media.jpg" alt="" />
-              </div>
-              <div class="swiper-slide">
-                <img src="/img/works/porro/detail.jpg" alt="" />
-              </div>
-              <div class="swiper-slide">
-                <img src="/img/works/porro/reservation.jpg" alt="" />
-              </div>
-              <div class="swiper-slide">
-                <img src="/img/works/porro/payment.jpg" alt="" />
-              </div>
-              <div class="swiper-slide">
-                <img src="/img/works/porro/payment_success.jpg" alt="" />
-              </div>
-              <div class="swiper-slide">
-                <img src="/img/works/porro/search.jpg" alt="" />
-              </div>
-              <div class="swiper-slide">
-                <img src="/img/works/porro/search_result.jpg" alt="" />
-              </div>
-              <div class="swiper-slide">
-                <img src="/img/works/porro/favorite.jpg" alt="" />
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
+          <swiper
+            :modules="modules"
+            navigation
+            :pagination="{ clickable: true }"
+            :slides-per-view="1"
+            :space-between="50"
+          >
+            <swiper-slide v-for="image in work.images" :key="image.image.url">
+              <img :src="image.image.url" alt="" />
+            </swiper-slide>
+          </swiper>
 
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-          <small>※α版の画像になります。</small>
           <div v-for="(content, index) in work.contents" :key="index">
             <h3>{{ content.title }}</h3>
             <p v-html="content.text"></p>
@@ -62,8 +37,25 @@
 
 <script>
 import axios from 'axios';
+import { Navigation, Pagination} from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+
+  setup() {
+    return {
+      modules: [Navigation, Pagination],
+    };
+  },
+
   props: {
     workId: {
       type: String,
