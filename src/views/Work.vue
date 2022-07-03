@@ -13,18 +13,22 @@
           <swiper
             :modules="modules"
             navigation
-            :pagination="{ clickable: true }"
-            :slides-per-view="1"
-            :space-between="50"
+            :pagination="swiper.pagination"
+            :loop="work.images.length > 1 ? true : false"
+            :breakpoints="swiper.breakpoints"
           >
             <swiper-slide v-for="image in work.images" :key="image.image.url">
               <img :src="image.image.url" alt="" />
             </swiper-slide>
           </swiper>
 
-          <div v-for="(content, index) in work.contents" :key="index">
+          <div
+            class="article-content"
+            v-for="(content, index) in work.contents"
+            :key="index"
+          >
             <h3>{{ content.title }}</h3>
-            <p v-html="content.text"></p>
+            <p class="content-text" v-html="content.text"></p>
           </div>
         </div>
         <div class="home-link">
@@ -37,7 +41,7 @@
 
 <script>
 import axios from 'axios';
-import { Navigation, Pagination} from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -53,6 +57,18 @@ export default {
   setup() {
     return {
       modules: [Navigation, Pagination],
+      swiper: {
+        pagination: {
+          clickable: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 1.3,
+            spaceBetween: 40,
+            centeredSlides: true,
+          },
+        },
+      },
     };
   },
 
@@ -93,3 +109,166 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+::v-deep(.swiper) {
+  padding-bottom: 40px;
+}
+
+::v-deep(.swiper-button-next),
+::v-deep(.swiper-button-prev) {
+  color: #333;
+}
+
+::v-deep(.swiper-button-next::after),
+::v-deep(.swiper-button-prev::after) {
+  font-size: 20px;
+}
+
+::v-deep(.swiper-pagination-bullet) {
+  border-radius: inherit;
+  background: #333;
+  width: 54px;
+  height: 5px;
+}
+
+::v-deep(.swiper-slide) {
+  text-align: center;
+}
+
+/*media Queries 767 smartphone
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+  ::v-deep(.swiper-button-next::after),
+  ::v-deep(.swiper-button-prev::after) {
+    display: none;
+  }
+}
+
+/*--------------------------------
+ 下層：Worksページ
+---------------------------------*/
+.article {
+  padding: 80px 0;
+}
+
+.article-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.article-title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.work-tag-article {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0 20px;
+  border-radius: 20px;
+}
+
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+.article-body h3 {
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 5px;
+  padding-left: 1em;
+}
+
+.article-body h3::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  content: '';
+  border-radius: 3px;
+  background-color: #333;
+}
+
+.article-content {
+  margin-bottom: 30px;
+}
+
+.article-body p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.home-link {
+  text-align: center;
+}
+
+.article-body ul {
+  list-style-position: inside;
+}
+
+.content-text li {
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.article-body h4 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.aws-list {
+  padding-left: 20px;
+}
+
+.github-list {
+  list-style: none;
+}
+
+.github-item {
+  margin-bottom: 10px;
+}
+
+.github-item p {
+  margin-bottom: 3px;
+}
+
+/*media Queries 767 smartphone
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+  .article {
+    padding: 50px 0;
+  }
+
+  .article-content {
+    margin-bottom: 20px;
+  }
+
+  .article-body h3 {
+    font-size: 16px;
+    padding-left: 0.8em;
+  }
+
+  .article-body h3:not(:first-child) {
+    margin-top: 30px;
+  }
+
+  .article-body p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .work-tag-article {
+    margin-left: 0;
+  }
+
+  .github-item p {
+    margin-bottom: 3px;
+  }
+}
+</style>
