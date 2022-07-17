@@ -4,6 +4,9 @@
       <div class="article-container">
         <h2 class="article-title">
           {{ work.title }}
+          <br class="sp-only" /><span v-if="work.client" class="pc-only">|</span>
+          {{ work.client }}
+          <br class="sp-only" />
           <span :class="`work-tag-article work-tag-${work.genre}`">
             <span v-if="work.genre == 'work'">仕事</span>
             <span v-if="work.genre == 'personal'">個人開発</span>
