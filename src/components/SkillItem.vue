@@ -1,7 +1,7 @@
 <template>
   <div class="skill-item">
     <p class="skill-img">
-      <img :src="`img/skills/${imgName}-icon.png`" alt="" />
+      <img :src="imageUrl" alt="スキルアイコン" />
     </p>
     <div class="skill-body">
       <h3 class="skill-name">{{ name }}</h3>
@@ -13,7 +13,7 @@
 <script>
 export default {
   props: {
-    imgName: {
+    imageUrl: {
       type: String,
     },
     name: {

@@ -38,13 +38,13 @@
     <section class="skill section" id="skill">
       <div class="container">
         <h2 class="title">SKILL</h2>
-        <div v-for="skillItem in skillList" :key="skillItem.genre">
-          <h3 class="skill-genre">{{ skillItem.genre }}</h3>
+        <div v-for="skillItem in skillList" :key="skillItem.item_name">
+          <h3 class="skill-genre">{{ skillItem.item_name }}</h3>
           <div class="skill-list">
             <SkillItem
               v-for="skill in skillItem.skills"
               :key="skill.name"
-              :imgName="skill.imgName"
+              :imageUrl="skill.image.url"
               :name="skill.name"
               :experience="skill.experience"
             ></SkillItem>
@@ -135,47 +135,13 @@ export default {
   data() {
     return {
       works: [],
-      skillList: [
-        {
-          genre: 'Frontend',
-          skills: [
-            { imgName: 'html', name: 'HTML5/CSS3', experience: '1 year' },
-            { imgName: 'javascript', name: 'JavaScript', experience: '1 year' },
-            {
-              imgName: 'typescript',
-              name: 'TypeScript',
-              experience: '2 month',
-            },
-            { imgName: 'vuejs', name: 'Vue.js', experience: '1 year' },
-            { imgName: 'nuxtjs', name: 'Nuxt.js', experience: '10 Month' },
-            { imgName: 'vuetify', name: 'Vuetify', experience: '6 month' },
-          ],
-        },
-        {
-          genre: 'Backend',
-          skills: [
-            { imgName: 'php', name: 'PHP', experience: '1 year' },
-            { imgName: 'laravel', name: 'Laravel', experience: '1 year' },
-            { imgName: 'symfony', name: 'Symfony', experience: '2 month' },
-            { imgName: 'mysql', name: 'Mysql', experience: '1 year' },
-          ],
-        },
-        {
-          genre: 'Infrastructure',
-          skills: [
-            { imgName: 'netlify', name: 'Netlify', experience: '1 year' },
-            { imgName: 'heroku', name: 'Heroku', experience: '1 year' },
-            { imgName: 'aws', name: 'AWS', experience: '1 year' },
-            { imgName: 'github', name: 'Git/Github', experience: '1 year' },
-            { imgName: 'docker', name: 'Docker', experience: '8 month' },
-          ],
-        },
-      ],
+      skillList: [],
     };
   },
 
   created() {
     this.fetchWorks();
+    this.fetchSkills();
   },
 
   methods: {
@@ -190,9 +156,21 @@ export default {
           }
         );
         this.works = res.data.contents;
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
+    },
+
+    async fetchSkills() {
+      try {
+        const res = await axios.get(
+          'https://portfolio-site.microcms.io/api/v1/skills',
+          {
+            headers: {
+              'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
+            },
+          }
+        );
+        this.skillList = res.data.contents;
+      } catch (e) {}
     },
   },
 };
