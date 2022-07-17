@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
-const env = require('dotenv').config().parsed;
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -19,13 +19,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          compilerOptions: {
-            compatConfig: {
-              MODE: 3,
-            },
-          },
-        },
       },
       {
         test: /\.js$/,
@@ -46,13 +39,8 @@ module.exports = {
       jQuery: 'jquery',
     }),
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(env),
+    new Dotenv({
+      systemvars: true
     }),
   ],
-  resolve: {
-    alias: {
-      vue: '@vue/compat',
-    },
-  },
 };
