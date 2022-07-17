@@ -67,10 +67,7 @@
             <p v-html="biography.description"></p>
             <ul class="sns-list">
               <li class="sns-item">
-                <a
-                  :href="biography.twitter_url"
-                  target="_blank"
-                  rel="noopener"
+                <a :href="biography.twitter_url" target="_blank" rel="noopener"
                   ><i class="fab fa-twitter icon"></i>Twitter</a
                 >
               </li>
@@ -186,3 +183,226 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+/*--------------------------------
+ 見出し
+---------------------------------*/
+.title {
+  font-size: 34px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #333;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/*--------------------------------
+ メインビジュアル
+---------------------------------*/
+.mv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  text-align: center;
+  background-image: url(../../img/mv.jpg);
+  background-position: center center;
+  background-size: cover;
+  color: #fff;
+}
+
+.mv-container {
+  padding: 0 40px;
+}
+
+.mv-title,
+.mv-subtitle,
+.mv-text {
+  text-shadow: 1px 2px 3px #808080;
+}
+
+.mv-title {
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 5px;
+  letter-spacing: 0.1em;
+}
+
+.mv-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 40px;
+  letter-spacing: 0.08em;
+}
+
+.mv-text {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/*--------------------------------
+ Skill
+---------------------------------*/
+.skill-genre {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*--------------------------------
+ About
+---------------------------------*/
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-img {
+  width: 20%;
+  margin-right: 30px;
+  border-radius: 50%;
+}
+
+.profile-img img {
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-body {
+  flex: 1;
+}
+
+.profile-body h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.profile-body p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.profile-body p:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+/*--------------------------------
+ Contact
+---------------------------------*/
+.contact {
+  text-align: center;
+}
+
+.contact-text {
+  margin-top: 10px;
+}
+
+.sns-item {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+.github-link {
+  color: #333;
+}
+
+.credit {
+  text-align: center;
+}
+
+/*media Queries 1440 tablet & pc
+----------------------------------------------------*/
+@media screen and (max-width: 1439px) {
+  .works-list {
+    justify-content: space-between;
+  }
+}
+
+/*media Queries 767 smartphone
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+  /* 見出し */
+  .title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  /*  メインビジュアル */
+  .mv {
+    height: 75vh;
+  }
+
+  .mv-container {
+    padding: 0 20px;
+  }
+
+  .mv-title {
+    font-size: 30px;
+  }
+  .mv-subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .mv-text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* Skill */
+  .skill-genre {
+    font-size: 18px;
+  }
+
+  .skill-list {
+    margin-bottom: 0;
+  }
+
+  /* About */
+  .profile {
+    display: block;
+  }
+
+  .profile-img {
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+
+  .profile-body h3 {
+    font-size: 18px;
+  }
+
+  .profile-body p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .profile-body p:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+</style>

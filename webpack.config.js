@@ -5,7 +5,7 @@ const env = require('dotenv').config().parsed;
 
 module.exports = {
   mode: 'development',
-  entry: './js/main.js',
+  entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -22,7 +22,7 @@ module.exports = {
         options: {
           compilerOptions: {
             compatConfig: {
-              MODE: 2,
+              MODE: 3,
             },
           },
         },

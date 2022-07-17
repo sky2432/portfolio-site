@@ -34,10 +34,6 @@
   </header>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped>
 .header {
   position: fixed;
@@ -103,5 +99,38 @@ export default {};
 
 .gnav-item a:hover:after {
   width: 100%;
+}
+
+/*media Queries 767 smartphone
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+  .header .container {
+    padding: 15px;
+  }
+
+  .header-logo {
+    font-size: 15px;
+    margin-right: 15px;
+  }
+
+  .gnav-item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  .gnav-item a {
+    font-size: 10px;
+  }
+
+  .gnav-item a:after {
+    display: none;
+  }
+}
+
+/*media Queries 374 smartphone
+----------------------------------------------------*/
+@media screen and (max-width: 374px) {
+  .header-logo span {
+    display: none;
+  }
 }
 </style>

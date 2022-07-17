@@ -94,18 +94,15 @@ export default {
     async fetchWork() {
       try {
         const res = await axios.get(
-          'https://portfolio-site.microcms.io/api/v1/works/' + this.workId,
+          process.env.VUE_APP_MICROCMS_API_URL + '/works/' + this.workId,
           {
             headers: {
               'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
             },
           }
         );
-        console.log(res);
         this.work = res.data;
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
     },
   },
 };
