@@ -33,7 +33,9 @@
           </div>
         </div>
         <div class="home-link">
-          <a href="/#works">Works一覧へ</a>
+          <router-link :to="{ name: 'Top', hash: '#works' }">
+            Works一覧へ
+          </router-link>
         </div>
       </div>
     </article>
