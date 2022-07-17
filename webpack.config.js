@@ -19,13 +19,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          compilerOptions: {
-            compatConfig: {
-              MODE: 3,
-            },
-          },
-        },
       },
       {
         test: /\.js$/,
@@ -50,9 +43,4 @@ module.exports = {
       'process.env': JSON.stringify(env),
     }),
   ],
-  resolve: {
-    alias: {
-      vue: '@vue/compat',
-    },
-  },
 };
