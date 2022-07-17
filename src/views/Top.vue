@@ -60,21 +60,21 @@
         <h2 class="title">ABOUT</h2>
         <div class="profile">
           <p class="profile-img">
-            <img v-if="biography.image" :src="biography.image.url" alt="" />
+            <img v-if="another.image" :src="another.image.url" alt="" />
           </p>
           <div class="profile-body">
-            <h3>{{ biography.name }}</h3>
-            <p v-html="biography.description"></p>
+            <h3>{{ another.name }}</h3>
+            <p v-html="another.description"></p>
             <ul class="sns-list">
               <li class="sns-item">
-                <a :href="biography.twitter_url" target="_blank" rel="noopener"
+                <a :href="another.twitter_url" target="_blank" rel="noopener"
                   ><i class="fab fa-twitter icon"></i>Twitter</a
                 >
               </li>
               <li class="sns-item">
                 <a
                   class="github-link"
-                  :href="biography.github_url"
+                  :href="another.github_url"
                   target="_blank"
                   rel="noopener"
                   ><i class="fab fa-github icon"></i>Github
@@ -95,18 +95,23 @@
           お問い合わせは、<br class="sp-only" />メールにてお願いいたします。
         </p>
         <div class="contact-list">
-          <p><i class="far fa-envelope icon"></i>{{ biography.email }}</p>
+          <p><i class="far fa-envelope icon"></i>{{ another.email }}</p>
         </div>
       </div>
     </section>
     <section class="credit section">
-      <p class="icon-credit">
-        このサイトのアイコンには<a href="https://icons8.com" target="_blank"
-          >icons8</a
-        >,
-        <a href="https://fontawesome.com/license" target="_blank"
-          >Font Awesome</a
-        >を使用させて頂いております
+      <p v-if="another.used_links" class="icon-credit">
+        このサイトの画像には
+        <a
+          v-for="(link, index) in another.used_links"
+          :key="index"
+          :href="link.url"
+          target="_blank"
+          rel="noopener"
+          >{{ link.name }}
+          <span v-if="index + 1 < another.used_links.length">,&nbsp;</span></a
+        >
+        を使用させて頂いております
       </p>
     </section>
     <!-- /contact -->
@@ -128,14 +133,14 @@ export default {
     return {
       works: [],
       skillList: [],
-      biography: {},
+      another: {},
     };
   },
 
   created() {
     this.fetchWorks();
     this.fetchSkills();
-    this.fetchBiography();
+    this.fetchAnotherData();
   },
 
   methods: {
@@ -167,17 +172,17 @@ export default {
       } catch (e) {}
     },
 
-    async fetchBiography() {
+    async fetchAnotherData() {
       try {
         const res = await axios.get(
-          process.env.VUE_APP_MICROCMS_API_URL + '/biography',
+          process.env.VUE_APP_MICROCMS_API_URL + '/another',
           {
             headers: {
               'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
             },
           }
         );
-        this.biography = res.data;
+        this.another = res.data;
       } catch (e) {}
     },
   },
