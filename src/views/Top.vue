@@ -60,20 +60,15 @@
         <h2 class="title">ABOUT</h2>
         <div class="profile">
           <p class="profile-img">
-            <img src="img/illust-profile.jpg" alt="" />
+            <img v-if="biography.image" :src="biography.image.url" alt="" />
           </p>
           <div class="profile-body">
-            <h3>SORA ITO</h3>
-            <p>
-              webアプリ開発エンジニア。2021年3月よりプログラミング学習を開始。現在はフリーランスエンジニアとして活動しております。
-            </p>
-            <p>
-              フロントエンド・バックエンドを開発。主な使用言語はJavaScript・PHPであり、フレームワークはNuxt.js・Laravelになります。
-            </p>
+            <h3>{{ biography.name }}</h3>
+            <p v-html="biography.description"></p>
             <ul class="sns-list">
               <li class="sns-item">
                 <a
-                  href="https://twitter.com/skyway2432"
+                  :href="biography.twitter_url"
                   target="_blank"
                   rel="noopener"
                   ><i class="fab fa-twitter icon"></i>Twitter</a
@@ -82,7 +77,7 @@
               <li class="sns-item">
                 <a
                   class="github-link"
-                  href="https://github.com/sky2432"
+                  :href="biography.github_url"
                   target="_blank"
                   rel="noopener"
                   ><i class="fab fa-github icon"></i>Github
@@ -103,7 +98,7 @@
           お問い合わせは、<br class="sp-only" />メールにてお願いいたします。
         </p>
         <div class="contact-list">
-          <p><i class="far fa-envelope icon"></i>soraito20@gmail.com</p>
+          <p><i class="far fa-envelope icon"></i>{{ biography.email }}</p>
         </div>
       </div>
     </section>
@@ -136,19 +131,21 @@ export default {
     return {
       works: [],
       skillList: [],
+      biography: {},
     };
   },
 
   created() {
     this.fetchWorks();
     this.fetchSkills();
+    this.fetchBiography();
   },
 
   methods: {
     async fetchWorks() {
       try {
         const res = await axios.get(
-          'https://portfolio-site.microcms.io/api/v1/works',
+          process.env.VUE_APP_MICROCMS_API_URL + '/works',
           {
             headers: {
               'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
@@ -162,7 +159,7 @@ export default {
     async fetchSkills() {
       try {
         const res = await axios.get(
-          'https://portfolio-site.microcms.io/api/v1/skills',
+          process.env.VUE_APP_MICROCMS_API_URL + '/skills',
           {
             headers: {
               'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
@@ -170,6 +167,20 @@ export default {
           }
         );
         this.skillList = res.data.contents;
+      } catch (e) {}
+    },
+
+    async fetchBiography() {
+      try {
+        const res = await axios.get(
+          process.env.VUE_APP_MICROCMS_API_URL + '/biography',
+          {
+            headers: {
+              'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
+            },
+          }
+        );
+        this.biography = res.data;
       } catch (e) {}
     },
   },

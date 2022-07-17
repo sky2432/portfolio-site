@@ -11,6 +11,7 @@
         </h2>
         <div class="article-body">
           <swiper
+            v-if="work.images"
             :modules="modules"
             navigation
             :pagination="swiper.pagination"
