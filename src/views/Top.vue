@@ -121,9 +121,11 @@
 </template>
 
 <script>
-import axios from 'axios';
-import SkillItem from '../components/SkillItem.vue';
-import WorkItem from '../components/WorkItem.vue';
+import SkillItem from '@/components/SkillItem.vue';
+import WorkItem from '@/components/WorkItem.vue';
+import useWorks from '@/composables/useWorks';
+import useSkillList from '@/composables/useSkillList';
+import useAnother from '@/composables/useAnother';
 
 export default {
   components: {
@@ -131,62 +133,21 @@ export default {
     WorkItem,
   },
 
-  data() {
+  setup() {
+    const { works, fetchWorks } = useWorks();
+    fetchWorks();
+
+    const { skillList, fetchSkillList } = useSkillList();
+    fetchSkillList();
+
+    const { another, fetchAnother } = useAnother();
+    fetchAnother();
+
     return {
-      works: [],
-      skillList: [],
-      another: {},
+      works,
+      skillList,
+      another
     };
-  },
-
-  created() {
-    this.fetchWorks();
-    this.fetchSkills();
-    this.fetchAnotherData();
-  },
-
-  methods: {
-    async fetchWorks() {
-      try {
-        const res = await axios.get(
-          process.env.VUE_APP_MICROCMS_API_URL + '/works',
-          {
-            headers: {
-              'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
-            },
-          }
-        );
-        this.works = res.data.contents;
-      } catch (e) {}
-    },
-
-    async fetchSkills() {
-      try {
-        const res = await axios.get(
-          process.env.VUE_APP_MICROCMS_API_URL + '/skills',
-          {
-            headers: {
-              'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
-            },
-          }
-        );
-        this.skillList = res.data.contents;
-      } catch (e) {}
-    },
-
-    async fetchAnotherData() {
-      try {
-        const res = await axios.get(
-          process.env.VUE_APP_MICROCMS_API_URL + '/another',
-          {
-            headers: {
-              'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
-            },
-          }
-        );
-        this.another = res.data;
-      } catch (e) {}
-    },
   },
 };
 </script>

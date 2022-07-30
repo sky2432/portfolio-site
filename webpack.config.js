@@ -49,4 +49,9 @@ module.exports = {
       systemvars: true,
     }),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    },
+  },
 };

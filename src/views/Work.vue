@@ -4,7 +4,9 @@
       <div class="article-container">
         <h2 class="article-title">
           {{ work.title }}
-          <br class="sp-only" /><span v-if="work.client" class="pc-only">|</span>
+          <br class="sp-only" /><span v-if="work.client" class="pc-only"
+            >|</span
+          >
           {{ work.client }}
           <br class="sp-only" />
           <span :class="`work-tag-article work-tag-${work.genre}`">
@@ -46,13 +48,14 @@
 </template>
 
 <script>
-import axios from 'axios';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import useWork from '@/composables/useWork';
+import { toRefs } from 'vue';
 
 export default {
   components: {
@@ -60,8 +63,20 @@ export default {
     SwiperSlide,
   },
 
-  setup() {
+  props: {
+    workId: {
+      type: String,
+      require: true,
+    },
+  },
+
+  setup(props) {
+    const { workId } = toRefs(props)
+    const { work, fetchWork } = useWork(workId);
+    fetchWork();
+
     return {
+      work,
       modules: [Navigation, Pagination],
       swiper: {
         pagination: {
@@ -76,39 +91,6 @@ export default {
         },
       },
     };
-  },
-
-  props: {
-    workId: {
-      type: String,
-      require: true,
-    },
-  },
-
-  data() {
-    return {
-      work: '',
-    };
-  },
-
-  created() {
-    this.fetchWork();
-  },
-
-  methods: {
-    async fetchWork() {
-      try {
-        const res = await axios.get(
-          process.env.VUE_APP_MICROCMS_API_URL + '/works/' + this.workId,
-          {
-            headers: {
-              'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
-            },
-          }
-        );
-        this.work = res.data;
-      } catch (e) {}
-    },
   },
 };
 </script>
