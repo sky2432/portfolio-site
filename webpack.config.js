@@ -10,6 +10,12 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, ''),
+    },
+    port: 9000,
+  },
   module: {
     rules: [
       {
@@ -40,7 +46,7 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
     new Dotenv({
-      systemvars: true
+      systemvars: true,
     }),
   ],
 };
