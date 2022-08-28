@@ -46,9 +46,32 @@
               :key="skill.name"
               :imageUrl="skill.image.url"
               :name="skill.name"
-              :experience="skill.experience"
+              :starCount="skill.starCount"
             ></SkillItem>
           </div>
+        </div>
+
+        <div>
+          <p>
+            <i v-for="n of 5" :key="n" class="fas fa-star"></i>
+            ：実務経験があり特に熟知している
+          </p>
+          <p>
+            <i v-for="n of 4" :key="n" class="fas fa-star"></i>
+            ：実務経験あり
+          </p>
+          <p>
+            <i v-for="n of 3" :key="n" class="fas fa-star"></i>
+            ：実務経験はあるが使用期間が短い
+          </p>
+          <p>
+            <i v-for="n of 2" :key="n" class="fas fa-star"></i>
+            ：個人開発の経験あり
+          </p>
+          <p>
+            <i v-for="n of 1" :key="n" class="fas fa-star"></i>
+            ：基本的な学習を終えた
+          </p>
         </div>
       </div>
     </section>
