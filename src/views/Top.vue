@@ -27,7 +27,7 @@
             :title="work.title"
             :genre="work.genre[0]"
             :thumbnailUrl="work.thumbnail.url"
-            :role="work.role[0]"
+            :roles="work.roles"
           ></WorkItem>
         </div>
       </div>

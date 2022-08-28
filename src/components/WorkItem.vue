@@ -10,11 +10,13 @@
       {{ title }}
       <span :class="`work-tag work-tag-${genre}`">{{ genre }}</span>
     </p>
-    <p class="works-info">{{ role }}</p>
+    <p class="works-info">{{ roleText }}</p>
   </router-link>
 </template>
 
 <script>
+import { computed } from 'vue'
+
 export default {
   props: {
     contentId: {
@@ -29,10 +31,29 @@ export default {
     thumbnailUrl: {
       type: String,
     },
-    role: {
-      type: String,
+    roles: {
+      type: Array,
     },
   },
+
+  setup(props) {
+    const roleText = computed(() => {
+      if (props.roles.length === 1) {
+        return props.roles[0]
+      }
+      let roleList = props.roles[0]
+      props.roles.forEach((role, index) => {
+        if (index > 0) {
+          roleList += ` / ${role}`
+        }
+      })
+      return roleList
+    })
+
+    return {
+      roleText
+    }
+  }
 };
 </script>
 
