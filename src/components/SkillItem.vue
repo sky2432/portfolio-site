@@ -5,7 +5,9 @@
     </p>
     <div class="skill-body">
       <h3 class="skill-name">{{ name }}</h3>
-      <p class="skill-text">{{ experience }}</p>
+      <p class="skill-text">
+        <i v-for="n of starCount" :key="n" class="fas fa-star"></i>
+      </p>
     </div>
   </div>
 </template>
@@ -19,9 +21,9 @@ export default {
     name: {
       type: String,
     },
-    experience: {
-      type: String,
-    },
+    starCount: {
+      type: Number,
+    }
   },
 };
 </script>
