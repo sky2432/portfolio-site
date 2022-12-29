@@ -11,6 +11,11 @@ export default () => {
           headers: {
             'X-MICROCMS-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY,
           },
+          params: {
+            // デフォルトが10
+            // 全て表示したいので大きい値を指定している
+            limit: 1000,
+          },
         }
       );
       works.value = res.data.contents;
