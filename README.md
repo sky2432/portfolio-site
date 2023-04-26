@@ -6,3 +6,13 @@
 
 ## サイトURL
 https://sora-ito-portfolio.netlify.app/
+
+## 環境構築手順
+パッケージインストール
+```
+npm i
+```
+Live Server起動後、webpack実行
+```
+npm run watch
+```
