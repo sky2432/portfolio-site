@@ -122,23 +122,6 @@
         </div>
       </div>
     </section>
-    <section class="credit section">
-      <p v-if="another.used_links" class="icon-credit">
-        このサイトの画像には
-        <br class="sp-only" />
-        <a
-          v-for="(link, index) in another.used_links"
-          :key="index"
-          :href="link.url"
-          target="_blank"
-          rel="noopener"
-          >{{ link.name }}
-          <span v-if="index + 1 < another.used_links.length">,&nbsp;</span></a
-        >
-        <br class="sp-only" />
-        を使用させて頂いております
-      </p>
-    </section>
     <!-- /contact -->
   </div>
 </template>
@@ -312,10 +295,6 @@ export default {
 
 .github-link {
   color: #333;
-}
-
-.credit {
-  text-align: center;
 }
 
 /*media Queries 1440 tablet & pc
