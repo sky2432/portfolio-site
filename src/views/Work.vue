@@ -11,7 +11,7 @@
           <br class="sp-only" />
           <span :class="`work-tag-article work-tag-${work.genre}`">
             <span v-if="work.genre == 'work'">仕事</span>
-            <span v-if="work.genre == 'personal'">個人開発</span>
+            <span v-if="work.genre == 'private'">個人開発</span>
           </span>
         </h2>
         <div class="article-body">

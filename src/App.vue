@@ -95,7 +95,7 @@ img {
   background-color: rgb(153, 153, 255);
 }
 
-.work-tag-personal {
+.work-tag-private {
   background-color: rgb(251, 163, 155);
 }
 
