@@ -13,6 +13,7 @@
     "ress": "^5.0.2",
     "swiper": "^8.2.6",
     "vue": "^3.2.37",
+    "vue-gtag": "^2.0.1",
     "vue-router": "^4.0.16"
   },
   "devDependencies": {
