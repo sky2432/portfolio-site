@@ -89,11 +89,12 @@
             <h3>{{ another.name }}</h3>
             <p v-html="another.description"></p>
             <ul class="sns-list">
-              <li class="sns-item">
+              <!-- あとで戻すかもしれないのでコメントアウト -->
+              <!-- <li class="sns-item">
                 <a :href="another.twitter_url" target="_blank" rel="noopener"
                   ><i class="fab fa-twitter icon"></i>Twitter</a
                 >
-              </li>
+              </li> -->
               <li class="sns-item">
                 <a
                   class="github-link"
