@@ -8,6 +8,10 @@
 https://sora-ito-portfolio.netlify.app/
 
 ## 環境構築手順
+.envを作成して値を記述
+```
+cp .env.example .env
+```
 パッケージインストール
 ```
 npm i
@@ -16,3 +20,4 @@ Live Server起動後、webpack実行
 ```
 npm run watch
 ```
+ブラウザにアクセス：http://localhost:5500/
