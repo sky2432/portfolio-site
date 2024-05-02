@@ -89,6 +89,8 @@ export default {
 .works-img img {
   border: 1px solid #e6e6e6;
   object-fit: contain;
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
 }
 
 /* サンプルイメージの場合 */
