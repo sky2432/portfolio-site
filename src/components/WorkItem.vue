@@ -3,15 +3,7 @@
     class="works-item"
     :to="{ name: 'Work', params: { workId: contentId } }"
   >
-    <div
-      :class="{
-        'works-img': true,
-        'sample-image': isSampleImage,
-      }"
-    >
-      <img :src="thumbnailUrl" alt="" />
-      <p class="sample-image-text">sample image</p>
-    </div>
+    <WorkImage :imageUrl="thumbnailUrl" :isSampleImage="isSampleImage" />
     <p class="works-name">
       {{ title }}
       <span :class="`work-tag work-tag-${genre}`">{{ genre }}</span>
@@ -22,8 +14,13 @@
 
 <script>
 import { computed } from 'vue';
+import WorkImage from '@/components/WorkImage.vue';
 
 export default {
+  components: {
+    WorkImage,
+  },
+
   props: {
     contentId: {
       type: String,
@@ -81,40 +78,6 @@ export default {
 .works-item:nth-of-type(3n) {
   margin-right: 0;
 }
-
-.works-img {
-  text-align: center;
-}
-
-.works-img img {
-  border: 1px solid #e6e6e6;
-  object-fit: contain;
-  aspect-ratio: 8 / 5;
-  object-fit: cover;
-}
-
-/* サンプルイメージの場合 */
-.sample-image {
-  position: relative;
-}
-
-.sample-image > img {
-  opacity: 0.3;
-}
-
-.sample-image-text {
-  display: none;
-  font-size: 21px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.sample-image > .sample-image-text {
-  display: block;
-}
-/* サンプルイメージの場合 終了 */
 
 .works-name {
   font-size: 12px;

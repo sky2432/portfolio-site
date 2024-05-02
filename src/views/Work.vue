@@ -23,8 +23,15 @@
             :loop="work.images.length > 1 ? true : false"
             :breakpoints="swiper.breakpoints"
           >
-            <swiper-slide v-for="image in work.images" :key="image.image.url">
-              <img :src="image.image.url" alt="" />
+            <swiper-slide
+              v-for="(image, index) in work.images"
+              :key="image.image.url"
+            >
+            <!-- 1枚目だけサンプル画像にする -->
+              <WorkImage
+                :imageUrl="image.image.url"
+                :isSampleImage="work.isSampleImage && index === 0"
+              ></WorkImage>
             </swiper-slide>
           </swiper>
 
@@ -56,11 +63,13 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import useWork from '@/composables/useWork';
 import { toRefs } from 'vue';
+import WorkImage from '@/components/WorkImage.vue';
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
+    WorkImage,
   },
 
   props: {
@@ -71,7 +80,7 @@ export default {
   },
 
   setup(props) {
-    const { workId } = toRefs(props)
+    const { workId } = toRefs(props);
     const { work, fetchWork } = useWork(workId);
     fetchWork();
 
