@@ -23,15 +23,15 @@
             :loop="work.images.length > 1 ? true : false"
             :breakpoints="swiper.breakpoints"
           >
-            <swiper-slide
-              v-for="(image, index) in work.images"
-              :key="image.image.url"
-            >
             <!-- 1枚目だけサンプル画像にする -->
+            <swiper-slide>
               <WorkImage
-                :imageUrl="image.image.url"
-                :isSampleImage="work.isSampleImage && index === 0"
+                :imageUrl="work.thumbnail.url"
+                :isSampleImage="work.isSampleImage"
               ></WorkImage>
+            </swiper-slide>
+            <swiper-slide v-for="image in work.images" :key="image.image.url">
+              <WorkImage :imageUrl="image.image.url"></WorkImage>
             </swiper-slide>
           </swiper>
 
@@ -83,6 +83,7 @@ export default {
     const { workId } = toRefs(props);
     const { work, fetchWork } = useWork(workId);
     fetchWork();
+    console.log(work);
 
     return {
       work,
