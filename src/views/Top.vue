@@ -29,6 +29,7 @@
             :thumbnailUrl="work.thumbnail.url"
             :roles="work.roles"
             :isSampleImage="work.isSampleImage"
+            :endDate="work.endDate"
           ></WorkItem>
         </div>
       </div>

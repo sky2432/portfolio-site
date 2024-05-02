@@ -7,6 +7,7 @@
     <p class="works-name">
       {{ title }}
       <span :class="`work-tag work-tag-${genre}`">{{ genre }}</span>
+      <span v-if="!endDate" :class="`work-tag work-tag-ongoing`">ongoing</span>
     </p>
     <p class="works-info">{{ roleText }}</p>
   </router-link>
@@ -39,6 +40,9 @@ export default {
     },
     isSampleImage: {
       type: Boolean,
+    },
+    endDate: {
+      type: String,
     },
   },
 
@@ -99,6 +103,10 @@ export default {
 
 .work-tag-private {
   background-color: rgb(251, 163, 155);
+}
+
+.work-tag-ongoing {
+  background-color: rgb(255, 204, 153);
 }
 
 .works-info {
