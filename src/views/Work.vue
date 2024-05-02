@@ -35,6 +35,13 @@
             </swiper-slide>
           </swiper>
 
+          <div v-if="period" class="article-content">
+            <h3>期間</h3>
+            <p class="content-text">
+              {{ period }}
+            </p>
+          </div>
+
           <div
             class="article-content"
             v-for="(content, index) in work.contents"
@@ -62,8 +69,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import useWork from '@/composables/useWork';
-import { toRefs } from 'vue';
+import { computed, toRefs } from 'vue';
 import WorkImage from '@/components/WorkImage.vue';
+import { dayjs } from '@/libs/dayjs';
 
 export default {
   components: {
@@ -83,10 +91,55 @@ export default {
     const { workId } = toRefs(props);
     const { work, fetchWork } = useWork(workId);
     fetchWork();
-    console.log(work);
+
+    const period = computed(() => {
+      // データ取得前は空文字を返す
+      if (!work.value) return '';
+
+      const startDate = work.value.startDate;
+      const format = 'YYYY/MM';
+      const starMonth = dayjs(startDate).format(format);
+      const endDate = work.value.endDate;
+
+      // 継続中の場合
+      if (!endDate) {
+        const diff = getDiffMonth(startDate, dayjs());
+        const diffText = getDiffText(diff);
+        return `${starMonth} ～ 継続中（${diffText}）`;
+      }
+
+      const diff = getDiffMonth(startDate, endDate);
+      const diffText = getDiffText(diff);
+
+      // 1ヶ月の場合
+      if (diff === 1) {
+        return `${starMonth}（${diffText}）`;
+      }
+
+      // 2ヶ月以上の場合
+      const endMonth = dayjs(endDate).format(format);
+      return `${starMonth} 〜 ${endMonth}（${diffText}）`;
+    });
+
+    const getDiffText = (diff) => {
+      if (diff < 12) {
+        return `${diff}ヶ月`;
+      } else {
+        const year = Math.floor(diff / 12);
+        const month = diff % 12;
+        return month ? `${year}年${month}ヶ月` : `${year}年`;
+      }
+    };
+
+    const getDiffMonth = (startDate, targetDate) => {
+      // 2021/01/01 〜 2021/01/01の場合は1ヶ月とする
+      // 2021/01/01 〜 2021/02/01の場合は2ヶ月とする
+      return dayjs(targetDate).diff(dayjs(startDate), 'month') + 1;
+    };
 
     return {
       work,
+      period,
       modules: [Navigation, Pagination],
       swiper: {
         pagination: {

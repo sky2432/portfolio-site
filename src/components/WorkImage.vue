@@ -5,7 +5,7 @@
       'sample-image': isSampleImage,
     }"
   >
-    <img :src="imageUrl" alt="" />
+    <img :src="imageUrl" alt="work画像" />
     <p class="sample-image-text">sample image</p>
   </div>
 </template>
@@ -41,7 +41,7 @@ export default {
 
 .sample-image-text {
   display: none;
-  font-size: 21px;
+  font-size: 24px;
   position: absolute;
   top: 50%;
   left: 50%;
