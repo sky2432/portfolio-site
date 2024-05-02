@@ -3,8 +3,14 @@
     class="works-item"
     :to="{ name: 'Work', params: { workId: contentId } }"
   >
-    <div class="works-img">
+    <div
+      :class="{
+        'works-img': true,
+        'sample-image': isSampleImage,
+      }"
+    >
       <img :src="thumbnailUrl" alt="" />
+      <p class="sample-image-text">sample image</p>
     </div>
     <p class="works-name">
       {{ title }}
@@ -15,7 +21,7 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed } from 'vue';
 
 export default {
   props: {
@@ -34,41 +40,42 @@ export default {
     roles: {
       type: Array,
     },
+    isSampleImage: {
+      type: Boolean,
+    },
   },
 
   setup(props) {
     const roleText = computed(() => {
       if (props.roles.length === 1) {
-        return props.roles[0]
+        return props.roles[0];
       }
-      let roleList = props.roles[0]
+      let roleList = props.roles[0];
       props.roles.forEach((role, index) => {
         if (index > 0) {
-          roleList += ` / ${role}`
+          roleList += ` / ${role}`;
         }
-      })
-      return roleList
-    })
+      });
+      return roleList;
+    });
 
     return {
-      roleText
-    }
-  }
+      roleText,
+    };
+  },
 };
 </script>
 
 <style scoped>
-
-
 .works-item {
   width: 31.74603%;
-  margin-right: 1.58730%;
+  margin-right: 1.5873%;
   margin-bottom: 40px;
   color: #333;
 }
 
 .works-item:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .works-item:nth-of-type(3n) {
@@ -83,6 +90,29 @@ export default {
   border: 1px solid #e6e6e6;
   object-fit: contain;
 }
+
+/* サンプルイメージの場合 */
+.sample-image {
+  position: relative;
+}
+
+.sample-image > img {
+  opacity: 0.3;
+}
+
+.sample-image-text {
+  display: none;
+  font-size: 21px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sample-image > .sample-image-text {
+  display: block;
+}
+/* サンプルイメージの場合 終了 */
 
 .works-name {
   font-size: 12px;

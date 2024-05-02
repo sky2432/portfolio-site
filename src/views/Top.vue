@@ -28,6 +28,7 @@
             :genre="work.genre[0]"
             :thumbnailUrl="work.thumbnail.url"
             :roles="work.roles"
+            :isSampleImage="work.isSampleImage"
           ></WorkItem>
         </div>
       </div>
