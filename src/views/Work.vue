@@ -159,6 +159,14 @@ export default {
 </script>
 
 <style scoped>
+.work-tag-work {
+  background-color: rgb(153, 153, 255);
+}
+
+.work-tag-private {
+  background-color: rgb(251, 163, 155);
+}
+
 ::v-deep(.swiper) {
   padding-bottom: 40px;
 }

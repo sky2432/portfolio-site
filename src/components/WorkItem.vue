@@ -93,6 +93,14 @@ export default {
   border-radius: 20px;
 }
 
+.work-tag-work {
+  background-color: rgb(153, 153, 255);
+}
+
+.work-tag-private {
+  background-color: rgb(251, 163, 155);
+}
+
 .works-info {
   font-size: 10px;
   margin-top: 5px;

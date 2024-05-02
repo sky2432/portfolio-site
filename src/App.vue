@@ -91,14 +91,6 @@ img {
   margin-bottom: -40px;
 }
 
-.work-tag-work {
-  background-color: rgb(153, 153, 255);
-}
-
-.work-tag-private {
-  background-color: rgb(251, 163, 155);
-}
-
 /*--------------------------------
  ページトップ
 ---------------------------------*/
