@@ -91,21 +91,19 @@
             <h3>{{ another.name }}</h3>
             <p v-html="another.description"></p>
             <ul class="sns-list">
-              <!-- あとで戻すかもしれないのでコメントアウト -->
-              <!-- <li class="sns-item">
-                <a :href="another.twitter_url" target="_blank" rel="noopener"
-                  ><i class="fab fa-twitter icon"></i>Twitter</a
-                >
-              </li> -->
-              <li class="sns-item">
-                <a
-                  class="github-link"
-                  :href="another.github_url"
-                  target="_blank"
-                  rel="noopener"
-                  ><i class="fab fa-github icon"></i>Github
-                </a>
-              </li>
+              <a
+                v-for="sns in another.sns_list"
+                :key="sns.url"
+                class="sns-item"
+                :href="sns.url"
+                target="_blank"
+                rel="noopener"
+              >
+                <img class="sns-icon" :src="sns.icon.url" :alt="sns.name" />
+                <span :style="`color: ${sns.color}`">
+                  {{ sns.name }}
+                </span>
+              </a>
             </ul>
           </div>
         </div>
@@ -151,11 +149,12 @@ export default {
 
     const { another, fetchAnother } = useAnother();
     fetchAnother();
+    console.log(another);
 
     return {
       works,
       skillList,
-      another
+      another,
     };
   },
 };
@@ -291,13 +290,26 @@ export default {
   margin-top: 10px;
 }
 
-.sns-item {
-  list-style-type: none;
-  margin-bottom: 5px;
+.sns-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.github-link {
+.sns-item {
+  display: flex;
+  gap: 5px;
+  align-items: center;
   color: #333;
+}
+
+.sns-item:hover {
+  opacity: 0.7;
+}
+
+.sns-icon {
+  width: 15px;
+  height: 15px;
 }
 
 /*media Queries 1440 tablet & pc
