@@ -1,36 +1,7 @@
-<template>
-  <div>
-    <TheHeader />
-    <router-view></router-view>
-    <TheFooter />
-    <div class="page-top" id="js-page-top" @click="moveTop">
-      <span class="material-icons-outlined">expand_less</span>
-    </div>
-  </div>
-</template>
-
-<script>
-import TheHeader from './components/The/Header.vue';
-import TheFooter from './components/The/Footer.vue';
-export default {
-  components: {
-    TheHeader,
-    TheFooter,
-  },
-
-  methods: {
-    moveTop() {
-      $('body,html').animate({ scrollTop: 0 }, 300);
-      return false;
-    },
-  },
-};
-</script>
-
-<style>
 body {
-  font-family: 'Montserrat', 'Helvetica Neue', Arial,
-    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  font-family:
+    var(--font-montserrat), 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+    Meiryo, sans-serif;
   font-size: 15px;
   letter-spacing: 0.05em;
   color: #333;
@@ -135,4 +106,3 @@ img {
     padding: 0 20px;
   }
 }
-</style>
