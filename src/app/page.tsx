@@ -3,7 +3,9 @@ import './top.css';
 import { LegacyHashRedirect } from '@/components/LegacyHashRedirect';
 import { SkillItem } from '@/components/SkillItem';
 import { WorkItem } from '@/components/WorkItem';
-import { getAnother, getSkillList, getWorks } from '@/lib/microcms';
+import { profile } from '@/data/profile';
+import { skillCategories } from '@/data/skills';
+import { works } from '@/data/works';
 
 const starLegends = [
   { count: 5, text: '実務経験があり特に熟知している' },
@@ -13,9 +15,7 @@ const starLegends = [
   { count: 1, text: '基本的な学習を終えた' },
 ];
 
-export default async function Top() {
-  const [works, skillList, another] = await Promise.all([getWorks(), getSkillList(), getAnother()]);
-
+export default function Top() {
   return (
     <div>
       <LegacyHashRedirect />
@@ -56,13 +56,13 @@ export default async function Top() {
       <section className="skill section" id="skill">
         <div className="container">
           <h2 className="title">SKILL</h2>
-          {skillList.map((skillItem) => (
-            <div key={skillItem.item_name}>
-              <h3 className="skill-genre">{skillItem.item_name}</h3>
+          {skillCategories.map((category) => (
+            <div key={category.name}>
+              <h3 className="skill-genre">{category.name}</h3>
               <div className="skill-list">
-                {skillItem.skills.map((skill) => (
+                {category.skills.map((skill) => (
                   <SkillItem
-                    imageUrl={skill.image.url}
+                    imageUrl={skill.image}
                     key={skill.name}
                     name={skill.name}
                     starCount={skill.starCount}
@@ -91,15 +91,17 @@ export default async function Top() {
         <div className="container">
           <h2 className="title">ABOUT</h2>
           <div className="profile">
-            <p className="profile-img">{another.image && <img alt="" src={another.image.url} />}</p>
+            <p className="profile-img">
+              <img alt="" src={profile.image} />
+            </p>
             <div className="profile-body">
-              <h3>{another.name}</h3>
+              <h3>{profile.name}</h3>
               <div
                 className="profile-description"
-                dangerouslySetInnerHTML={{ __html: another.description }}
+                dangerouslySetInnerHTML={{ __html: profile.description }}
               />
               <ul className="sns-list">
-                {another.sns_list?.map((sns) => (
+                {profile.snsList.map((sns) => (
                   <a
                     className="sns-item"
                     href={sns.url}
@@ -107,8 +109,8 @@ export default async function Top() {
                     rel="noopener"
                     target="_blank"
                   >
-                    <img alt={sns.name} className="sns-icon" src={sns.icon.url} />
-                    <span style={{ color: sns.color }}>{sns.name}</span>
+                    <img alt={sns.name} className="sns-icon" src={sns.icon} />
+                    <span>{sns.name}</span>
                   </a>
                 ))}
               </ul>
@@ -130,7 +132,7 @@ export default async function Top() {
           <div className="contact-list">
             <p>
               <i className="far fa-envelope icon" />
-              {another.email}
+              {profile.email}
             </p>
           </div>
         </div>
