@@ -9,32 +9,32 @@ export const skillCategories: SkillCategory[] = [
     name: 'Language',
     skills: [
       {
-        image: '/img/skills/javascript.png',
+        image: '/img/skills/javascript.webp',
         name: 'JavaScript',
         starCount: 5,
       },
       {
-        image: '/img/skills/typescript.png',
+        image: '/img/skills/typescript.webp',
         name: 'TypeScript',
         starCount: 4,
       },
       {
-        image: '/img/skills/php.png',
+        image: '/img/skills/php.webp',
         name: 'PHP',
         starCount: 5,
       },
       {
-        image: '/img/skills/python.png',
+        image: '/img/skills/python.webp',
         name: 'Python',
         starCount: 4,
       },
       {
-        image: '/img/skills/go.png',
+        image: '/img/skills/go.webp',
         name: 'Go',
         starCount: 3,
       },
       {
-        image: '/img/skills/html5-css3.png',
+        image: '/img/skills/html5-css3.webp',
         name: 'HTML5/CSS3',
         starCount: 4,
       },
@@ -44,42 +44,42 @@ export const skillCategories: SkillCategory[] = [
     name: 'Framework',
     skills: [
       {
-        image: '/img/skills/laravel.png',
+        image: '/img/skills/laravel.webp',
         name: 'Laravel',
         starCount: 5,
       },
       {
-        image: '/img/skills/vue-js.png',
+        image: '/img/skills/vue-js.webp',
         name: 'Vue.js',
         starCount: 4,
       },
       {
-        image: '/img/skills/nuxt-js.png',
+        image: '/img/skills/nuxt-js.webp',
         name: 'Nuxt.js',
         starCount: 4,
       },
       {
-        image: '/img/skills/vuetify.png',
+        image: '/img/skills/vuetify.webp',
         name: 'Vuetify',
         starCount: 4,
       },
       {
-        image: '/img/skills/next-js.png',
+        image: '/img/skills/next-js.webp',
         name: 'Next.js',
         starCount: 4,
       },
       {
-        image: '/img/skills/react.png',
+        image: '/img/skills/react.webp',
         name: 'React',
         starCount: 3,
       },
       {
-        image: '/img/skills/symfony.png',
+        image: '/img/skills/symfony.webp',
         name: 'Symfony',
         starCount: 3,
       },
       {
-        image: '/img/skills/django.png',
+        image: '/img/skills/django.webp',
         name: 'django',
         starCount: 2,
       },
@@ -94,42 +94,42 @@ export const skillCategories: SkillCategory[] = [
     name: 'DB・Tool',
     skills: [
       {
-        image: '/img/skills/mysql.png',
+        image: '/img/skills/mysql.webp',
         name: 'Mysql',
         starCount: 4,
       },
       {
-        image: '/img/skills/sqlite.png',
+        image: '/img/skills/sqlite.webp',
         name: 'sqlite',
         starCount: 4,
       },
       {
-        image: '/img/skills/postgresql.png',
+        image: '/img/skills/postgresql.webp',
         name: 'postgresql',
         starCount: 3,
       },
       {
-        image: '/img/skills/netlify.png',
+        image: '/img/skills/netlify.webp',
         name: 'Netlify',
         starCount: 4,
       },
       {
-        image: '/img/skills/heroku.png',
+        image: '/img/skills/heroku.webp',
         name: 'Heroku',
         starCount: 2,
       },
       {
-        image: '/img/skills/aws.png',
+        image: '/img/skills/aws.webp',
         name: 'AWS',
         starCount: 4,
       },
       {
-        image: '/img/skills/git-github.png',
+        image: '/img/skills/git-github.webp',
         name: 'Git/Github',
         starCount: 4,
       },
       {
-        image: '/img/skills/docker.png',
+        image: '/img/skills/docker.webp',
         name: 'Docker',
         starCount: 4,
       },

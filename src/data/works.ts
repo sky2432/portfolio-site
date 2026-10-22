@@ -3,6 +3,7 @@ export type Work = {
   title: string;
   client?: string;
   genre: 'work' | 'private';
+  // 画像は WebP・幅1200px以下。OGP 用に同じ画像の JPG を /img/works/<id>/ogp.jpg に置く
   thumbnail: string;
   // true ならサムネイルを薄くして「sample image」と表示する
   isSampleImage: boolean;
@@ -38,7 +39,7 @@ export const works: Work[] = [
     isSampleImage: false,
     roles: ['Coding', 'Coding(Responsive)', 'Design'],
     startDate: '2024-09-21',
-    thumbnail: '/img/works/g28fa31mrkh/thumbnail.png',
+    thumbnail: '/img/works/g28fa31mrkh/thumbnail.webp',
     title: 'ロドス・スタイル',
   },
   {
@@ -70,7 +71,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding(Responsive)'],
     startDate: '2023-03-01',
-    thumbnail: '/img/works/6nqorgybi5/thumbnail.jpg',
+    thumbnail: '/img/works/6nqorgybi5/thumbnail.webp',
     title: '歯科医師向け情報サイトの開発',
   },
   {
@@ -103,7 +104,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding'],
     startDate: '2023-12-01',
-    thumbnail: '/img/works/e_hb56ts5jm/thumbnail.jpg',
+    thumbnail: '/img/works/e_hb56ts5jm/thumbnail.webp',
     title: 'シフト管理システムの開発',
   },
   {
@@ -136,7 +137,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding(Responsive)'],
     startDate: '2024-04-01',
-    thumbnail: '/img/works/jgwdkp6s8cr/thumbnail.jpg',
+    thumbnail: '/img/works/jgwdkp6s8cr/thumbnail.webp',
     title: '商談サービスLPのデザインリニューアル業務',
   },
   {
@@ -169,7 +170,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding'],
     startDate: '2023-11-01',
-    thumbnail: '/img/works/ozcqve4-9b/thumbnail.jpg',
+    thumbnail: '/img/works/ozcqve4-9b/thumbnail.webp',
     title: 'ETCマイレージ管理システムのリニューアル',
   },
   {
@@ -202,7 +203,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding'],
     startDate: '2023-10-01',
-    thumbnail: '/img/works/au8zddzve5/thumbnail.jpg',
+    thumbnail: '/img/works/au8zddzve5/thumbnail.webp',
     title: 'ビジネス系マッチングサービスの開発',
   },
   {
@@ -235,7 +236,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding'],
     startDate: '2023-01-01',
-    thumbnail: '/img/works/41tn6xcy5/thumbnail.jpg',
+    thumbnail: '/img/works/41tn6xcy5/thumbnail.webp',
     title: 'パティシエ向け求人サイトの開発',
   },
   {
@@ -269,14 +270,14 @@ export const works: Work[] = [
     genre: 'private',
     id: 'eolu0-n9je90',
     images: [
-      '/img/works/eolu0-n9je90/1.png',
-      '/img/works/eolu0-n9je90/2.png',
-      '/img/works/eolu0-n9je90/3.png',
+      '/img/works/eolu0-n9je90/1.webp',
+      '/img/works/eolu0-n9je90/2.webp',
+      '/img/works/eolu0-n9je90/3.webp',
     ],
     isSampleImage: false,
     roles: ['Coding(Responsive)', 'Design'],
     startDate: '2022-04-01',
-    thumbnail: '/img/works/eolu0-n9je90/thumbnail.png',
+    thumbnail: '/img/works/eolu0-n9je90/thumbnail.webp',
     title: '内山昂輝の1クール！のあの場面',
   },
   {
@@ -309,7 +310,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Direction', 'Coding'],
     startDate: '2022-08-01',
-    thumbnail: '/img/works/mnucp6a-x/thumbnail.jpg',
+    thumbnail: '/img/works/mnucp6a-x/thumbnail.webp',
     title: '電力シミュレーションシステム開発',
   },
   {
@@ -342,7 +343,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding'],
     startDate: '2022-06-01',
-    thumbnail: '/img/works/r9nst6o_74/thumbnail.jpg',
+    thumbnail: '/img/works/r9nst6o_74/thumbnail.webp',
     title: '販売物流管理システム開発',
   },
   {
@@ -375,7 +376,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding(Responsive)', 'Direction'],
     startDate: '2022-04-01',
-    thumbnail: '/img/works/jplhkb2_b46r/thumbnail.jpg',
+    thumbnail: '/img/works/jplhkb2_b46r/thumbnail.webp',
     title: '動画配信サービス開発',
   },
   {
@@ -418,18 +419,18 @@ export const works: Work[] = [
     genre: 'work',
     id: '0b0gi2x90',
     images: [
-      '/img/works/0b0gi2x90/1.jpg',
-      '/img/works/0b0gi2x90/2.jpg',
-      '/img/works/0b0gi2x90/3.jpg',
-      '/img/works/0b0gi2x90/4.jpg',
-      '/img/works/0b0gi2x90/5.jpg',
-      '/img/works/0b0gi2x90/6.jpg',
-      '/img/works/0b0gi2x90/7.jpg',
+      '/img/works/0b0gi2x90/1.webp',
+      '/img/works/0b0gi2x90/2.webp',
+      '/img/works/0b0gi2x90/3.webp',
+      '/img/works/0b0gi2x90/4.webp',
+      '/img/works/0b0gi2x90/5.webp',
+      '/img/works/0b0gi2x90/6.webp',
+      '/img/works/0b0gi2x90/7.webp',
     ],
     isSampleImage: false,
     roles: ['Coding'],
     startDate: '2021-12-01',
-    thumbnail: '/img/works/0b0gi2x90/thumbnail.jpg',
+    thumbnail: '/img/works/0b0gi2x90/thumbnail.webp',
     title: 'Discovery Gallery(仮)',
   },
   {
@@ -462,7 +463,7 @@ export const works: Work[] = [
     isSampleImage: true,
     roles: ['Coding'],
     startDate: '2022-01-01',
-    thumbnail: '/img/works/u76o6662sym/thumbnail.jpg',
+    thumbnail: '/img/works/u76o6662sym/thumbnail.webp',
     title: 'ECサイトリニューアル業務',
   },
   {
@@ -509,14 +510,14 @@ export const works: Work[] = [
     genre: 'work',
     id: 'ymhub7ps55',
     images: [
-      '/img/works/ymhub7ps55/1.png',
-      '/img/works/ymhub7ps55/2.png',
-      '/img/works/ymhub7ps55/3.png',
+      '/img/works/ymhub7ps55/1.webp',
+      '/img/works/ymhub7ps55/2.webp',
+      '/img/works/ymhub7ps55/3.webp',
     ],
     isSampleImage: false,
     roles: ['Coding(Responsive)'],
     startDate: '2021-09-01',
-    thumbnail: '/img/works/ymhub7ps55/thumbnail.png',
+    thumbnail: '/img/works/ymhub7ps55/thumbnail.webp',
     title: 'fansa',
   },
   {
@@ -550,16 +551,16 @@ export const works: Work[] = [
     genre: 'private',
     id: '57wtb0ii4',
     images: [
-      '/img/works/57wtb0ii4/1.png',
-      '/img/works/57wtb0ii4/2.png',
-      '/img/works/57wtb0ii4/3.png',
-      '/img/works/57wtb0ii4/4.png',
-      '/img/works/57wtb0ii4/5.png',
+      '/img/works/57wtb0ii4/1.webp',
+      '/img/works/57wtb0ii4/2.webp',
+      '/img/works/57wtb0ii4/3.webp',
+      '/img/works/57wtb0ii4/4.webp',
+      '/img/works/57wtb0ii4/5.webp',
     ],
     isSampleImage: false,
     roles: ['Coding(Responsive)', 'Design'],
     startDate: '2021-07-01',
-    thumbnail: '/img/works/57wtb0ii4/thumbnail.png',
+    thumbnail: '/img/works/57wtb0ii4/thumbnail.webp',
     title: 'RoutineQuest',
   },
   {
@@ -589,15 +590,15 @@ export const works: Work[] = [
     genre: 'private',
     id: '44y0_905i5e',
     images: [
-      '/img/works/44y0_905i5e/1.png',
-      '/img/works/44y0_905i5e/2.png',
-      '/img/works/44y0_905i5e/3.png',
-      '/img/works/44y0_905i5e/4.png',
+      '/img/works/44y0_905i5e/1.webp',
+      '/img/works/44y0_905i5e/2.webp',
+      '/img/works/44y0_905i5e/3.webp',
+      '/img/works/44y0_905i5e/4.webp',
     ],
     isSampleImage: false,
     roles: ['Coding(Responsive)'],
     startDate: '2021-05-01',
-    thumbnail: '/img/works/44y0_905i5e/thumbnail.png',
+    thumbnail: '/img/works/44y0_905i5e/thumbnail.webp',
     title: 'Rese',
   },
   {
@@ -631,15 +632,15 @@ export const works: Work[] = [
     genre: 'private',
     id: 'lwjw0mer2',
     images: [
-      '/img/works/lwjw0mer2/1.png',
-      '/img/works/lwjw0mer2/2.png',
-      '/img/works/lwjw0mer2/3.png',
-      '/img/works/lwjw0mer2/4.png',
+      '/img/works/lwjw0mer2/1.webp',
+      '/img/works/lwjw0mer2/2.webp',
+      '/img/works/lwjw0mer2/3.webp',
+      '/img/works/lwjw0mer2/4.webp',
     ],
     isSampleImage: false,
     roles: ['Coding(Responsive)', 'Design'],
     startDate: '2021-04-01',
-    thumbnail: '/img/works/lwjw0mer2/thumbnail.png',
+    thumbnail: '/img/works/lwjw0mer2/thumbnail.webp',
     title: 'TodoList',
   },
   {
@@ -663,7 +664,7 @@ export const works: Work[] = [
     isSampleImage: false,
     roles: ['Coding(Responsive)'],
     startDate: '2021-12-01',
-    thumbnail: '/img/works/v7clcfm_4/thumbnail.jpg',
+    thumbnail: '/img/works/v7clcfm_4/thumbnail.webp',
     title: 'SORA ITO Portfolio Site',
   },
 ];

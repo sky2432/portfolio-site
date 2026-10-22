@@ -3,16 +3,16 @@ export const profile = {
   description:
     '<p><span style="color:#333333">webアプリケーション開発エンジニア。</span><br><br><span style="color:#333333">フロントエンド・バックエンドを開発。主な使用言語はJavaScript・TypeScript・PHPであり、フレームワークはNext.js・Vue.js・Laravelになります。</span><br><br><span style="color:#000000">お仕事を任せて頂いたことに感謝し、誠実で責任のある対応を心掛けています。</span></p>',
   email: 'soraito20@gmail.com',
-  image: '/img/profile/avatar.jpg',
+  image: '/img/profile/avatar.webp',
   name: '伊藤空 | SORA ITO',
   snsList: [
     {
-      icon: '/img/profile/sns-github.png',
+      icon: '/img/profile/sns-github.webp',
       name: 'Github',
       url: 'https://github.com/sky2432',
     },
     {
-      icon: '/img/profile/sns-qiita.png',
+      icon: '/img/profile/sns-qiita.webp',
       name: 'Qiita',
       url: 'https://qiita.com/sky2432',
     },

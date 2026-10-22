@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!work) return {};
   return {
     openGraph: {
-      images: work.thumbnail,
+      // WebP 非対応のサービスもあるため、OGP にはサムネイルの JPG 版を使う
+      images: `/img/works/${work.id}/ogp.jpg`,
       title: work.title,
       type: 'website',
       url: `/works/${workId}`,
