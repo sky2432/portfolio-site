@@ -1,4 +1,5 @@
 // description は HTML
+// 画像は WebP。image は幅480px、snsList の icon は幅45px（どちらも表示サイズの3倍）
 export const profile = {
   description:
     '<p><span style="color:#333333">webアプリケーション開発エンジニア。</span><br><br><span style="color:#333333">フロントエンド・バックエンドを開発。主な使用言語はJavaScript・TypeScript・PHPであり、フレームワークはNext.js・Vue.js・Laravelになります。</span><br><br><span style="color:#000000">お仕事を任せて頂いたことに感謝し、誠実で責任のある対応を心掛けています。</span></p>',

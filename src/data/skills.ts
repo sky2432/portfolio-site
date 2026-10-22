@@ -1,6 +1,7 @@
 export type SkillCategory = {
   name: string;
   // starCount は 1〜5（トップページの SKILL 欄に凡例あり）
+  // image は WebP・幅180px（表示サイズ 60px の3倍）
   skills: { name: string; image: string; starCount: number }[];
 };
 
