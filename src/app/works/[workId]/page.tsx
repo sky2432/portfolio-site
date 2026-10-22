@@ -2,10 +2,11 @@ import './work.css';
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 import { WorkSlider } from '@/components/WorkSlider';
+import { type Work, works } from '@/data/works';
 import { dayjs } from '@/lib/dayjs';
-import { getWork, getWorks, type Work } from '@/lib/microcms';
 
 type Props = {
   params: Promise<{ workId: string }>;
@@ -13,17 +14,18 @@ type Props = {
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  const works = await getWorks();
+export function generateStaticParams() {
   return works.map((work) => ({ workId: work.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { workId } = await params;
-  const work = await getWork(workId);
+  const work = works.find((w) => w.id === workId);
+  if (!work) return {};
   return {
     openGraph: {
-      images: work.thumbnail.url,
+      // WebP 非対応のサービスもあるため、OGP にはサムネイルの JPG 版を使う
+      images: `/img/works/${work.id}/ogp.jpg`,
       title: work.title,
       type: 'website',
       url: `/works/${workId}`,
@@ -72,8 +74,9 @@ function getDiffMonth(startDate: string, targetDate: Parameters<typeof dayjs>[0]
 
 export default async function WorkPage({ params }: Props) {
   const { workId } = await params;
-  const work = await getWork(workId);
-  const genre = work.genre[0];
+  const work = works.find((w) => w.id === workId);
+  if (!work) notFound();
+  const { genre } = work;
 
   return (
     <div>
@@ -89,20 +92,18 @@ export default async function WorkPage({ params }: Props) {
             </span>
           </h2>
           <div className="article-body">
-            {work.images && (
-              <WorkSlider
-                imageUrls={work.images.map((image) => image.image.url)}
-                isSampleImage={work.isSampleImage}
-                thumbnailUrl={work.thumbnail.url}
-              />
-            )}
+            <WorkSlider
+              imageUrls={work.images}
+              isSampleImage={work.isSampleImage}
+              thumbnailUrl={work.thumbnail}
+            />
 
             <div className="article-content">
               <h3>期間</h3>
               <p className="content-text">{getPeriod(work)}</p>
             </div>
 
-            {work.contents?.map((content, index) => (
+            {work.contents.map((content, index) => (
               <div className="article-content" key={index}>
                 <h3>{content.title}</h3>
                 <div className="content-text" dangerouslySetInnerHTML={{ __html: content.text }} />
