@@ -27,3 +27,10 @@ pnpm dev
 ```
 
 ブラウザにアクセス：http://localhost:4005/
+
+## デプロイ
+
+- Cloudflare Pages（Git 連携。`main` が本番）。ビルドコマンド `pnpm build`、出力ディレクトリ `out`
+- 環境変数は Cloudflare Pages の設定に `.env.example` と同じものを登録する
+- microCMS の内容はビルド時に取得するため、更新を反映するには再ビルド（Pages のデプロイフック）が必要
+- 旧 URL（https://sora-ito-portfolio.netlify.app/）は、Netlify に手動デプロイした `_redirects` で 301 転送している（リポジトリとは連携していない）
