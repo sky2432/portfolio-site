@@ -1,0 +1,135 @@
+.work-tag-work {
+  background-color: rgb(153, 153, 255);
+}
+
+.work-tag-private {
+  background-color: rgb(251, 163, 155);
+}
+
+/*--------------------------------
+ スライダー
+---------------------------------*/
+.article-body .swiper {
+  padding-bottom: 40px;
+}
+
+.article-body .swiper-button-next,
+.article-body .swiper-button-prev {
+  color: #333;
+}
+
+/* Swiper 14 から矢印がフォントではなく SVG になったため、SVG の高さで大きさを指定する */
+.article-body .swiper-button-next svg,
+.article-body .swiper-button-prev svg {
+  height: 20px;
+}
+
+.article-body .swiper-pagination-bullet {
+  border-radius: inherit;
+  background: #333;
+  width: 54px;
+  height: 5px;
+}
+
+.article-body .swiper-slide {
+  text-align: center;
+}
+
+/*media Queries 767 smartphone
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+  .article-body .swiper-button-next svg,
+  .article-body .swiper-button-prev svg {
+    display: none;
+  }
+}
+
+/*--------------------------------
+ 下層：Worksページ
+---------------------------------*/
+.article {
+  padding: 80px 0;
+}
+
+.article-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.article-title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.work-tag-article {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0 20px;
+  border-radius: 20px;
+}
+
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+/* microCMS のリッチテキスト内の要素には当てず、外側の要素にだけ当てる */
+.article-content > h3 {
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 5px;
+  padding-left: 1em;
+}
+
+.article-content > h3::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  content: '';
+  border-radius: 3px;
+  background-color: #333;
+}
+
+.article-content {
+  margin-bottom: 30px;
+}
+
+.article-body .content-text {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.home-link {
+  text-align: center;
+}
+
+/*media Queries 767 smartphone
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+  .article {
+    padding: 50px 0;
+  }
+
+  .article-content {
+    margin-bottom: 20px;
+  }
+
+  .article-content > h3 {
+    font-size: 16px;
+    padding-left: 0.8em;
+  }
+
+  .article-body .content-text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .work-tag-article {
+    margin-left: 0;
+  }
+}

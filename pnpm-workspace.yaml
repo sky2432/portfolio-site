@@ -1,0 +1,9 @@
+# 単一プロジェクト（packages: は不要）
+
+# サプライチェーン対策: 公開後7日未満の版はインストールしない
+minimumReleaseAge: 10080 # 7日（分単位）。pnpm 11既定は1440(24h)
+
+# 依存のpostinstall実行可否（既定ブロック）。true=必要なので許可 / false=不要・レビュー済み
+# プリビルドバイナリ/optional依存で動くため postinstall 不要
+allowBuilds:
+  unrs-resolver: false
