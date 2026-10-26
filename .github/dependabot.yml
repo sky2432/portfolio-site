@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '09:00'
+      timezone: Asia/Tokyo
+    open-pull-requests-limit: 10
+    # pnpm-workspace.yaml の minimumReleaseAge（7日）に合わせる
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: chore
+    # @types/node は .node-version の Node major に合わせて手動で上げる
+    ignore:
+      - dependency-name: '@types/node'
+        update-types:
+          - version-update:semver-major
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
