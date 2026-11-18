@@ -1,4 +1,4 @@
-import 'ress';
+import 'ress/dist/ress.min.css';
 import './globals.css';
 
 import { GoogleAnalytics } from '@next/third-parties/google';
